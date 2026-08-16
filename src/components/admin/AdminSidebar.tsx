@@ -13,11 +13,14 @@ import {
   Image as ImageIcon,
   UserCog,
   X,
+  type LucideIcon,
 } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
 import { cn } from '@/lib/utils'
 
-const NAV = [
+type NavItem = { href: string; label: string; icon: LucideIcon; exact?: boolean }
+
+const NAV: NavItem[] = [
   { href: '/admin', label: 'Tableau de bord', icon: LayoutDashboard, exact: true },
   { href: '/admin/articles', label: 'Articles', icon: Newspaper },
   { href: '/admin/projets', label: 'Projets & références', icon: Briefcase },
@@ -28,7 +31,7 @@ const NAV = [
   { href: '/admin/medias', label: 'Médiathèque', icon: ImageIcon },
 ]
 
-const ADMIN_ONLY_NAV = [{ href: '/admin/utilisateurs', label: 'Utilisateurs', icon: UserCog }]
+const ADMIN_ONLY_NAV: NavItem[] = [{ href: '/admin/utilisateurs', label: 'Utilisateurs', icon: UserCog }]
 
 export function AdminSidebar({
   role,
