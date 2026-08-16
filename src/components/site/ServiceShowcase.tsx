@@ -3,7 +3,8 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Building2, Compass, Cpu, GraduationCap, LifeBuoy, Users, ArrowUpRight, type LucideIcon } from 'lucide-react'
-import { IconTile, ICON_TILE_PX } from '@/components/ui/IconTile'
+import { IconTile } from '@/components/ui/IconTile'
+import { ICON_TILE_PX } from '@/lib/icon-sizes'
 import { Reveal } from '@/components/motion/Reveal'
 import type { ServiceDomain } from '@/lib/constants'
 

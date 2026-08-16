@@ -2,9 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
-
-export const ICON_TILE_PX = { sm: 18, md: 24, lg: 28 } as const
-export type IconTileSize = keyof typeof ICON_TILE_PX
+import type { IconTileSize } from '@/lib/icon-sizes'
 
 /**
  * Traitement d'icône cohérent sur tout le site : relief (dégradé + ombre
