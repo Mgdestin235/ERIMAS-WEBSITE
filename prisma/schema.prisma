@@ -1,0 +1,155 @@
+// ERIMAS SARL — schéma de base de données
+// PostgreSQL via Prisma ORM
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+enum ContentStatus {
+  DRAFT
+  PUBLISHED
+}
+
+enum MessageStatus {
+  NEW
+  READ
+  ARCHIVED
+}
+
+model User {
+  id           String    @id @default(cuid())
+  name         String
+  email        String    @unique
+  passwordHash String
+  role         Role      @default(EDITOR)
+  avatarUrl    String?
+  isActive     Boolean   @default(true)
+  lastLoginAt  DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  articles Article[]
+
+  @@map("users")
+}
+
+model Article {
+  id          String        @id @default(cuid())
+  title       String
+  slug        String        @unique
+  excerpt     String
+  content     String        @db.Text
+  coverImage  String?
+  category    String?
+  status      ContentStatus @default(DRAFT)
+  publishedAt DateTime?
+  authorId    String?
+  author      User?         @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([slug])
+  @@index([status, publishedAt])
+  @@map("articles")
+}
+
+model Project {
+  id         String        @id @default(cuid())
+  title      String
+  slug       String        @unique
+  client     String
+  sector     String?
+  location   String?
+  year       Int?
+  summary    String
+  content    String        @db.Text
+  coverImage String?
+  status     ContentStatus @default(DRAFT)
+  featured   Boolean       @default(false)
+  order      Int           @default(0)
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+
+  @@index([slug])
+  @@index([status])
+  @@map("projects")
+}
+
+model Testimonial {
+  id           String   @id @default(cuid())
+  authorName   String
+  authorRole   String?
+  organization String?
+  quote        String   @db.Text
+  avatarUrl    String?
+  featured     Boolean  @default(true)
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("testimonials")
+}
+
+model TeamMember {
+  id        String   @id @default(cuid())
+  name      String
+  role      String
+  bio       String?  @db.Text
+  photoUrl  String?
+  isFounder Boolean  @default(false)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("team_members")
+}
+
+/// Blocs de contenu éditables pour les pages statiques (ex : intro "Qui sommes-nous").
+/// `content` est un objet JSON libre { champ: valeur } propre à chaque page,
+/// interprété par la page correspondante côté visiteur.
+model Page {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  title     String
+  content   Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("pages")
+}
+
+model ContactMessage {
+  id        String        @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String        @db.Text
+  status    MessageStatus @default(NEW)
+  createdAt DateTime      @default(now())
+
+  @@index([status])
+  @@map("contact_messages")
+}
+
+model Media {
+  id        String   @id @default(cuid())
+  filename  String
+  url       String
+  mimeType  String
+  size      Int
+  alt       String?
+  createdAt DateTime @default(now())
+
+  @@map("media")
+}

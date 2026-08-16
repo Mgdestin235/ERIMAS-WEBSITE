@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  @apply bg-ink text-cream antialiased;
+  font-family: var(--font-sans);
+}
+
+::selection {
+  @apply bg-mint-500/30 text-cream;
+}
+
+/* Focus clavier visible partout — WCAG AA */
+:focus-visible {
+  outline: 2px solid theme('colors.mint.400');
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Curseur personnalisé : masqué par défaut, activé en JS uniquement sur
+   pointeur fin (desktop) et hors prefers-reduced-motion. */
+.custom-cursor-active {
+  cursor: none;
+}
+.custom-cursor-active a,
+.custom-cursor-active button {
+  cursor: none;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Grille de fond très discrète, purement décorative */
+.bg-grid {
+  background-image: theme('backgroundImage.grid-faint');
+  background-size: theme('backgroundSize.grid');
+}
+
+/* Scrollbar sobre, cohérente avec la direction artistique */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: theme('colors.navy.950');
+}
+::-webkit-scrollbar-thumb {
+  background: theme('colors.navy.700');
+  border-radius: 999px;
+  border: 2px solid theme('colors.navy.950');
+}

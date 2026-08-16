@@ -1,0 +1,18 @@
+# Base de données PostgreSQL locale pour le développement.
+# Démarrage : docker compose up -d
+# Puis : npm run db:migrate && npm run db:seed
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: erimas
+      POSTGRES_PASSWORD: erimas
+      POSTGRES_DB: erimas
+    ports:
+      - '5432:5432'
+    volumes:
+      - erimas_pgdata:/var/lib/postgresql/data
+
+volumes:
+  erimas_pgdata:
