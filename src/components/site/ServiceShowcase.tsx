@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Building2, Compass, Cpu, GraduationCap, LifeBuoy, Users, ArrowUpRight, type LucideIcon } from 'lucide-react'
-import { IconTile } from '@/components/ui/IconTile'
+import { IconTile, ICON_TILE_PX } from '@/components/ui/IconTile'
 import { Reveal } from '@/components/motion/Reveal'
 import type { ServiceDomain } from '@/lib/constants'
 
@@ -26,7 +26,9 @@ export function ServiceCard({ service, index, detailed = false }: { service: Ser
         transition={{ type: 'spring', stiffness: 260, damping: 22 }}
         className="group h-full rounded-2xl border border-navy-700/70 bg-navy-900/40 p-7 shadow-card transition-colors duration-300 hover:border-mint-500/40 hover:shadow-card-hover"
       >
-        <IconTile icon={Icon} />
+        <IconTile>
+          <Icon size={ICON_TILE_PX.md} className="text-mint-300 drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]" strokeWidth={1.75} />
+        </IconTile>
         <h3 className="mt-6 font-display text-xl font-semibold text-cream">{service.title}</h3>
         <p className="mt-2.5 text-sm leading-relaxed text-navy-300">
           {detailed ? service.description : service.shortDescription}

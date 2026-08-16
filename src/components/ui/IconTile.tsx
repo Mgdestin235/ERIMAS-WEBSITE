@@ -1,24 +1,30 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import type { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
+
+export const ICON_TILE_PX = { sm: 18, md: 24, lg: 28 } as const
+export type IconTileSize = keyof typeof ICON_TILE_PX
 
 /**
  * Traitement d'icône cohérent sur tout le site : relief (dégradé + ombre
  * portée interne), jamais une icône plate. Micro-interaction au survol/tap.
+ *
+ * Reçoit l'icône déjà rendue en `children` (et non une référence de
+ * composant) : les Server Components ne peuvent pas transmettre une
+ * référence de fonction/composant à un Client Component à travers la
+ * frontière RSC — seul du JSX déjà rendu peut traverser cette frontière.
  */
 export function IconTile({
-  icon: Icon,
+  children,
   className,
   size = 'md',
 }: {
-  icon: LucideIcon
+  children: React.ReactNode
   className?: string
-  size?: 'sm' | 'md' | 'lg'
+  size?: IconTileSize
 }) {
   const dims = { sm: 'h-10 w-10', md: 'h-14 w-14', lg: 'h-16 w-16' }[size]
-  const iconSize = { sm: 18, md: 24, lg: 28 }[size]
 
   return (
     <motion.div
@@ -35,7 +41,7 @@ export function IconTile({
         className
       )}
     >
-      <Icon size={iconSize} className="text-mint-300 drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]" strokeWidth={1.75} />
+      {children}
     </motion.div>
   )
 }

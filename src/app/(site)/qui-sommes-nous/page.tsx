@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Handshake, Award, Lock, Users2, Sparkles } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
-import { IconTile } from '@/components/ui/IconTile'
+import { IconTile, ICON_TILE_PX } from '@/components/ui/IconTile'
 import { Reveal } from '@/components/motion/Reveal'
 import { AmbientOrbs } from '@/components/motion/AmbientOrbs'
 import { ContactBanner } from '@/components/site/ContactBanner'
@@ -95,7 +95,9 @@ export default async function AboutPage() {
             {VALUES.map((value, i) => (
               <Reveal key={value.title} delay={i * 0.08}>
                 <div className="flex h-full flex-col items-center rounded-2xl border border-navy-800 bg-navy-900/40 p-6 text-center">
-                  <IconTile icon={value.icon} size="sm" />
+                  <IconTile size="sm">
+                    <value.icon size={ICON_TILE_PX.sm} className="text-mint-300 drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]" strokeWidth={1.75} />
+                  </IconTile>
                   <h3 className="mt-4 font-display text-base font-semibold text-cream">{value.title}</h3>
                   <p className="mt-2 text-sm text-navy-300">{value.description}</p>
                 </div>
