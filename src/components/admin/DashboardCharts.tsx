@@ -12,8 +12,8 @@ export function ContentBreakdownChart({ data }: { data: { name: string; total: n
           <YAxis stroke="#8199c6" fontSize={12} tickLine={false} axisLine={false} allowDecimals={false} />
           <Tooltip
             cursor={{ fill: 'rgba(55,192,150,0.08)' }}
-            contentStyle={{ background: '#0b1526', border: '1px solid #1f2f50', borderRadius: 12, fontSize: 13 }}
-            labelStyle={{ color: '#f7f5ef' }}
+            contentStyle={{ background: '#0c1f3d', border: '1px solid #1f2f50', borderRadius: 12, fontSize: 13 }}
+            labelStyle={{ color: '#ffffff' }}
           />
           <Bar dataKey="total" fill="#37c096" radius={[6, 6, 0, 0]} maxBarSize={48} />
         </BarChart>

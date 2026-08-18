@@ -23,12 +23,12 @@ const config: Config = {
           950: '#060c18',
         },
         ink: {
-          DEFAULT: '#0a0d12',
-          soft: '#12161d',
+          DEFAULT: '#0c1f3d',
+          soft: '#132a4d',
         },
         cream: {
-          DEFAULT: '#f7f5ef',
-          dim: '#efece3',
+          DEFAULT: '#ffffff',
+          dim: '#e3eaf5',
         },
         mint: {
           50: '#eafbf5',
