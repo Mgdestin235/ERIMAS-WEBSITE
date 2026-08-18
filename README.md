@@ -10,14 +10,11 @@ Deux portails, une même base de données :
   pour gérer articles, projets/références, témoignages, équipe, pages,
   messages de contact et médias, sans intervention d'un développeur.
 
-> ⚠️ **État de ce dépôt.** Ce code a été écrit intégralement dans un
-> environnement dont la politique réseau bloquait l'accès à npm et GitHub —
-> il n'a donc **pas pu être installé, compilé (`next build`) ni testé** dans
-> cette session. La structure suit scrupuleusement les API stables de
-> Next.js 14 / Prisma 5 / NextAuth 4, mais un premier `npm install` +
-> `npm run build` doit être effectué avant toute mise en production, pour
-> corriger d'éventuelles erreurs de typage ou coquilles qu'aucune compilation
-> n'a encore pu détecter.
+> ℹ️ **État de ce dépôt.** Le code a été écrit dans un environnement sans
+> accès direct à npm ; le build (`npm install && npm run typecheck && npm
+> run lint && npm run build`) est donc vérifié via une CI GitHub Actions
+> (`.github/workflows/ci.yml`) à chaque commit plutôt qu'en local — voir
+> l'historique des commits du dépôt pour le statut du dernier build.
 
 ## Stack technique
 
@@ -143,21 +140,41 @@ plusieurs éléments sont volontairement laissés en **brouillon** ou marqués
      *Environment Variables* du projet Vercel (`NEXTAUTH_URL` = URL de
      production, `NEXTAUTH_SECRET` généré spécifiquement, etc.).
    - Le script `postinstall` exécute automatiquement `prisma generate`.
-4. **Migrations en production** : avant ou juste après le premier déploiement,
-   exécutez `npx prisma migrate deploy` (depuis votre poste, en ciblant
-   `DATABASE_URL` de production) puis `npm run db:seed` pour créer le premier
-   compte administrateur.
+4. **Initialiser la base (tables + compte admin)** — deux façons, au choix :
+
+   **A. Sans terminal, depuis le navigateur (recommandé si vous n'avez pas
+   Node.js installé) :**
+   - Dans les *Environment Variables* Vercel, ajoutez `SETUP_TOKEN` avec une
+     valeur secrète de votre choix (une suite de caractères aléatoire).
+   - Redéployez si nécessaire (Vercel redéploie automatiquement après un
+     changement de variable d'environnement sur certains plans ; sinon
+     cliquez *Redeploy*).
+   - Ouvrez `https://<votre-site>.vercel.app/api/setup?token=<le-token-choisi>`
+     dans votre navigateur. La page affiche un JSON confirmant la création
+     des tables et du compte admin (`"ok": true`).
+   - Retirez ensuite la variable `SETUP_TOKEN` de Vercel (ou changez sa
+     valeur) pour désactiver cette route — elle refuse toute requête si
+     `SETUP_TOKEN` n'est pas défini.
+
+   **B. Avec un terminal (Node.js installé localement) :**
+   ```bash
+   git clone https://github.com/Mgdestin235/ERIMAS-WEBSITE.git
+   cd ERIMAS-WEBSITE && git checkout claude/erimas-website-dev-sg0u6p
+   npm install
+   DATABASE_URL="<votre chaîne de production>" npx prisma migrate deploy
+   DATABASE_URL="<votre chaîne de production>" npm run db:seed
+   ```
 5. **Domaine & DNS** : pointez votre domaine vers Vercel, puis mettez à jour
    `NEXT_PUBLIC_SITE_URL` et `NEXTAUTH_URL`.
 
 ### Avant la mise en ligne
 
 - [ ] `npm install && npm run build` en local pour corriger toute erreur de
-      compilation (non vérifié dans cet environnement, voir avertissement en
-      tête de ce document).
-- [ ] Remplacer le mot de passe du compte admin de démonstration.
-- [ ] Remplacer le monogramme provisoire par le logo officiel ERIMAS.
-- [ ] Compléter les fiches marquées `[À COMPLÉTER]`.
+      compilation (vérifié via CI GitHub Actions — voir historique du dépôt).
+- [ ] Changer le mot de passe du compte admin de démonstration dès la
+      première connexion.
+- [ ] Compléter les fiches marquées `[À COMPLÉTER]` (associés fondateurs,
+      témoignages réels, photographies).
 - [ ] Vérifier les Core Web Vitals (Lighthouse) une fois déployé.
 
 ## Guide d'utilisation du portail admin
