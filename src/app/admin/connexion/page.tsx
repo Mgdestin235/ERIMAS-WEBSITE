@@ -36,7 +36,7 @@ function LoginForm() {
     <div className="flex min-h-screen items-center justify-center bg-ink px-6">
       <div className="w-full max-w-sm">
         <div className="flex justify-center">
-          <Logo />
+          <Logo tone="white" />
         </div>
         <h1 className="mt-8 text-center font-display text-2xl font-semibold text-cream">Portail admin</h1>
         <p className="mt-2 text-center text-sm text-navy-400">Connectez-vous pour gérer le contenu du site.</p>

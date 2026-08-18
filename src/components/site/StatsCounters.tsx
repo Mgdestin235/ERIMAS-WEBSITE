@@ -8,10 +8,10 @@ export function StatsCounters() {
       {STATS.map((stat, i) => (
         <Reveal key={stat.label} delay={i * 0.12}>
           <div className="text-center sm:text-left">
-            <p className="font-display text-5xl font-semibold text-cream sm:text-6xl">
+            <p className="font-display text-5xl font-semibold text-navy-900 sm:text-6xl">
               <AnimatedCounter value={stat.value} suffix={stat.suffix} />
             </p>
-            <p className="mt-2 text-sm uppercase tracking-wider text-navy-300">{stat.label}</p>
+            <p className="mt-2 text-sm uppercase tracking-wider text-navy-500">{stat.label}</p>
           </div>
         </Reveal>
       ))}

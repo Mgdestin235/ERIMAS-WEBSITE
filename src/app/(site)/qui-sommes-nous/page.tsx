@@ -35,16 +35,18 @@ export default async function AboutPage() {
 
   return (
     <>
+      {/* INTRO — bleu marine */}
       <section className="relative overflow-hidden bg-ink py-24 sm:py-32">
         <AmbientOrbs />
         <Container className="relative">
           <SectionHeading
             eyebrow="Qui sommes-nous"
             title="Un cabinet conseil en ressources humaines, pensé pour le Tchad"
+            tone="dark"
           />
           <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
             <Reveal delay={0.1}>
-              <div className="space-y-5 text-lg leading-relaxed text-navy-200">
+              <div className="space-y-5 text-lg leading-relaxed text-white/80">
                 <p>
                   {COMPANY.name} est un cabinet conseil en ressources humaines basé à {COMPANY.city}, au Tchad,
                   constitué sous la forme d&apos;une {COMPANY.legalForm} au capital de {COMPANY.capital}
@@ -60,24 +62,24 @@ export default async function AboutPage() {
               </div>
             </Reveal>
             <Reveal delay={0.2}>
-              <div className="rounded-2xl border border-navy-700/70 bg-navy-900/40 p-8">
-                <h3 className="font-display text-lg font-semibold text-cream">Identité du cabinet</h3>
+              <div className="rounded-2xl border border-white/15 bg-white/5 p-8 backdrop-blur-sm">
+                <h3 className="font-display text-lg font-semibold text-white">Identité du cabinet</h3>
                 <dl className="mt-5 space-y-4 text-sm">
-                  <div className="flex justify-between gap-4 border-b border-navy-800 pb-3">
-                    <dt className="text-navy-400">Forme juridique</dt>
-                    <dd className="text-right text-cream">{COMPANY.legalForm}</dd>
+                  <div className="flex justify-between gap-4 border-b border-white/10 pb-3">
+                    <dt className="text-white/60">Forme juridique</dt>
+                    <dd className="text-right text-white">{COMPANY.legalForm}</dd>
                   </div>
-                  <div className="flex justify-between gap-4 border-b border-navy-800 pb-3">
-                    <dt className="text-navy-400">RCCM</dt>
-                    <dd className="text-right text-cream">{COMPANY.rccm}</dd>
+                  <div className="flex justify-between gap-4 border-b border-white/10 pb-3">
+                    <dt className="text-white/60">RCCM</dt>
+                    <dd className="text-right text-white">{COMPANY.rccm}</dd>
                   </div>
-                  <div className="flex justify-between gap-4 border-b border-navy-800 pb-3">
-                    <dt className="text-navy-400">Capital social</dt>
-                    <dd className="text-right text-cream">{COMPANY.capital}</dd>
+                  <div className="flex justify-between gap-4 border-b border-white/10 pb-3">
+                    <dt className="text-white/60">Capital social</dt>
+                    <dd className="text-right text-white">{COMPANY.capital}</dd>
                   </div>
                   <div className="flex justify-between gap-4">
-                    <dt className="text-navy-400">Siège</dt>
-                    <dd className="text-right text-cream">
+                    <dt className="text-white/60">Siège</dt>
+                    <dd className="text-right text-white">
                       {COMPANY.city}, {COMPANY.country}
                     </dd>
                   </div>
@@ -88,19 +90,19 @@ export default async function AboutPage() {
         </Container>
       </section>
 
-      {/* VALEURS */}
-      <section className="bg-navy-950 py-24 sm:py-32">
+      {/* VALEURS — blanc */}
+      <section className="bg-white py-24 sm:py-32">
         <Container>
           <SectionHeading eyebrow="Nos valeurs" title="Ce qui guide chacune de nos interventions" align="center" />
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {VALUES.map((value, i) => (
               <Reveal key={value.title} delay={i * 0.08}>
-                <div className="flex h-full flex-col items-center rounded-2xl border border-navy-800 bg-navy-900/40 p-6 text-center">
+                <div className="flex h-full flex-col items-center rounded-2xl border border-navy-100 bg-white p-6 text-center shadow-card">
                   <IconTile size="sm">
-                    <value.icon size={ICON_TILE_PX.sm} className="text-mint-300 drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]" strokeWidth={1.75} />
+                    <value.icon size={ICON_TILE_PX.sm} className="text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]" strokeWidth={1.75} />
                   </IconTile>
-                  <h3 className="mt-4 font-display text-base font-semibold text-cream">{value.title}</h3>
-                  <p className="mt-2 text-sm text-navy-300">{value.description}</p>
+                  <h3 className="mt-4 font-display text-base font-semibold text-navy-900">{value.title}</h3>
+                  <p className="mt-2 text-sm text-navy-600">{value.description}</p>
                 </div>
               </Reveal>
             ))}
@@ -108,8 +110,8 @@ export default async function AboutPage() {
         </Container>
       </section>
 
-      {/* GOUVERNANCE */}
-      <section className="bg-ink py-24 sm:py-32">
+      {/* GOUVERNANCE — blanc */}
+      <section className="border-t border-navy-100 bg-white py-24 sm:py-32">
         <Container>
           <SectionHeading
             eyebrow="Gouvernance"
@@ -120,25 +122,25 @@ export default async function AboutPage() {
             {teamMembers.length > 0 ? (
               teamMembers.map((member, i) => (
                 <Reveal key={member.id} delay={i * 0.08}>
-                  <div className="rounded-2xl border border-navy-800 bg-navy-900/40 p-6">
-                    <div className="h-16 w-16 overflow-hidden rounded-full bg-navy-700">
+                  <div className="rounded-2xl border border-navy-100 bg-white p-6 shadow-card">
+                    <div className="h-16 w-16 overflow-hidden rounded-full bg-navy-100">
                       {member.photoUrl ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img src={member.photoUrl} alt={member.name} className="h-full w-full object-cover" />
                       ) : (
-                        <div className="flex h-full w-full items-center justify-center font-display text-xl text-mint-300">
+                        <div className="flex h-full w-full items-center justify-center font-display text-xl text-navy-500">
                           {member.name.trim().charAt(0) || '?'}
                         </div>
                       )}
                     </div>
-                    <h3 className="mt-4 font-display text-lg font-semibold text-cream">{member.name}</h3>
-                    <p className="text-sm text-mint-400">{member.role}</p>
-                    {member.bio && <p className="mt-2 text-sm text-navy-300">{member.bio}</p>}
+                    <h3 className="mt-4 font-display text-lg font-semibold text-navy-900">{member.name}</h3>
+                    <p className="text-sm text-mint-600">{member.role}</p>
+                    {member.bio && <p className="mt-2 text-sm text-navy-600">{member.bio}</p>}
                   </div>
                 </Reveal>
               ))
             ) : (
-              <p className="text-navy-400">
+              <p className="text-navy-500">
                 Les fiches de l&apos;équipe dirigeante seront publiées ici depuis le portail admin.
               </p>
             )}

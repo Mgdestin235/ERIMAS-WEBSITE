@@ -28,10 +28,10 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
 
   return (
     <>
-      <article className="bg-ink py-20 sm:py-28">
+      <article className="bg-white py-20 sm:py-28">
         <Container className="max-w-3xl">
           <Reveal>
-            <Link href="/projets" className="inline-flex items-center gap-1.5 text-sm font-medium text-navy-300 hover:text-mint-300">
+            <Link href="/projets" className="inline-flex items-center gap-1.5 text-sm font-medium text-navy-500 hover:text-mint-600">
               <ArrowLeft size={15} />
               Retour aux projets
             </Link>
@@ -44,24 +44,24 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
           </Reveal>
 
           <Reveal delay={0.14}>
-            <h1 className="mt-4 font-display text-display-md text-cream">{project.title}</h1>
+            <h1 className="mt-4 font-display text-display-md text-navy-900">{project.title}</h1>
           </Reveal>
 
           <Reveal delay={0.2}>
-            <div className="mt-6 flex flex-wrap gap-6 text-sm text-navy-300">
+            <div className="mt-6 flex flex-wrap gap-6 text-sm text-navy-600">
               <span className="inline-flex items-center gap-2">
-                <Building2 size={16} className="text-mint-400" />
+                <Building2 size={16} className="text-mint-500" />
                 {project.client}
               </span>
               {project.location && (
                 <span className="inline-flex items-center gap-2">
-                  <MapPin size={16} className="text-mint-400" />
+                  <MapPin size={16} className="text-mint-500" />
                   {project.location}
                 </span>
               )}
               {project.year && (
                 <span className="inline-flex items-center gap-2">
-                  <Calendar size={16} className="text-mint-400" />
+                  <Calendar size={16} className="text-mint-500" />
                   {project.year}
                 </span>
               )}
@@ -70,7 +70,7 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
 
           <Reveal delay={0.26}>
             <div
-              className="prose prose-invert mt-10 max-w-none prose-headings:font-display prose-a:text-mint-400"
+              className="prose mt-10 max-w-none prose-headings:font-display prose-headings:text-navy-900 prose-a:text-mint-600"
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{ __html: project.content }}
             />

@@ -29,11 +29,11 @@ export function TestimonialsCarousel({ items }: { items: TestimonialItem[] }) {
 
   return (
     <div
-      className="relative mx-auto max-w-3xl rounded-3xl border border-navy-700/60 bg-navy-900/50 p-10 text-center shadow-card sm:p-14"
+      className="relative mx-auto max-w-3xl rounded-3xl border border-navy-100 bg-white p-10 text-center shadow-card-hover sm:p-14"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <Quote className="mx-auto h-10 w-10 text-mint-500/70" aria-hidden="true" />
+      <Quote className="mx-auto h-10 w-10 text-mint-500" aria-hidden="true" />
       <div className="relative mt-6 min-h-[9rem]">
         <AnimatePresence mode="wait">
           <motion.blockquote
@@ -43,11 +43,11 @@ export function TestimonialsCarousel({ items }: { items: TestimonialItem[] }) {
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="text-balance font-display text-xl italic leading-relaxed text-cream sm:text-2xl">
+            <p className="text-balance font-display text-xl italic leading-relaxed text-navy-900 sm:text-2xl">
               “{current.quote}”
             </p>
-            <footer className="mt-6 text-sm text-navy-300">
-              <span className="font-semibold text-cream">{current.authorName}</span>
+            <footer className="mt-6 text-sm text-navy-500">
+              <span className="font-semibold text-navy-800">{current.authorName}</span>
               {current.authorRole && <span> — {current.authorRole}</span>}
               {current.organization && <span>, {current.organization}</span>}
             </footer>
@@ -64,7 +64,7 @@ export function TestimonialsCarousel({ items }: { items: TestimonialItem[] }) {
               aria-label={`Témoignage ${i + 1}`}
               className={cn(
                 'h-2 rounded-full transition-all duration-300',
-                i === index ? 'w-8 bg-mint-400' : 'w-2 bg-navy-600 hover:bg-navy-500'
+                i === index ? 'w-8 bg-mint-500' : 'w-2 bg-navy-100 hover:bg-navy-200'
               )}
             />
           ))}

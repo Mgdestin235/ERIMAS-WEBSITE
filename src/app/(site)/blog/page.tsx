@@ -19,7 +19,7 @@ export default async function BlogPage() {
 
   return (
     <>
-      <section className="bg-ink py-24 sm:py-32">
+      <section className="bg-white py-24 sm:py-32">
         <Container>
           <SectionHeading
             eyebrow="Actualités"
@@ -34,8 +34,8 @@ export default async function BlogPage() {
                 ))}
               </div>
             ) : (
-              <div className="rounded-2xl border border-navy-800 bg-navy-900/40 p-12 text-center">
-                <p className="text-navy-300">
+              <div className="rounded-2xl border border-navy-100 bg-navy-50/60 p-12 text-center">
+                <p className="text-navy-600">
                   Aucun article publié pour le moment. Revenez bientôt, ou suivez nos actualités directement en
                   nous contactant.
                 </p>

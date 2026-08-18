@@ -49,7 +49,7 @@ export function AdminSidebar({
     <div className="flex h-full flex-col">
       <div className="flex items-center justify-between px-5 py-6">
         <Link href="/admin">
-          <Logo />
+          <Logo tone="white" />
         </Link>
         <button onClick={onClose} className="rounded-lg p-1.5 text-navy-400 hover:text-cream lg:hidden" aria-label="Fermer le menu">
           <X size={18} />

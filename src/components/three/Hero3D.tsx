@@ -24,7 +24,7 @@ export function Hero3D({ className }: { className?: string }) {
         aria-hidden="true"
         style={{
           background:
-            'radial-gradient(circle at 32% 28%, rgba(55,192,150,0.22), transparent 58%), radial-gradient(circle at 72% 68%, rgba(31,47,80,0.65), transparent 60%)',
+            'radial-gradient(circle at 32% 28%, rgba(91,154,160,0.25), transparent 58%), radial-gradient(circle at 72% 68%, rgba(112,153,194,0.35), transparent 60%)',
         }}
       />
     )

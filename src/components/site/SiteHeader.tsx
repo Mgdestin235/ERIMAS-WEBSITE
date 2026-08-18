@@ -30,8 +30,8 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-premium',
-        scrolled ? 'bg-ink/85 backdrop-blur-md shadow-[0_1px_0_0_rgba(255,255,255,0.06)]' : 'bg-transparent'
+        'fixed inset-x-0 top-0 z-50 border-b bg-white/95 backdrop-blur-md transition-shadow duration-500 ease-premium',
+        scrolled ? 'border-navy-100 shadow-[0_1px_16px_-4px_rgba(21,51,94,0.18)]' : 'border-transparent'
       )}
     >
       <Container>
@@ -49,13 +49,13 @@ export function SiteHeader() {
                   href={link.href}
                   data-cursor="link"
                   className={cn(
-                    'relative text-sm font-medium transition-colors hover:text-mint-300',
-                    active ? 'text-mint-300' : 'text-cream/85'
+                    'relative text-sm font-medium transition-colors hover:text-mint-500',
+                    active ? 'text-navy-700' : 'text-navy-500'
                   )}
                 >
                   {link.label}
                   {active && (
-                    <motion.span layoutId="nav-underline" className="absolute -bottom-1.5 left-0 h-px w-full bg-mint-400" />
+                    <motion.span layoutId="nav-underline" className="absolute -bottom-1.5 left-0 h-px w-full bg-mint-500" />
                   )}
                 </Link>
               )
@@ -69,7 +69,7 @@ export function SiteHeader() {
           </div>
 
           <button
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-navy-600 text-cream lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-navy-200 text-navy-700 lg:hidden"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
             aria-expanded={mobileOpen}
@@ -86,7 +86,7 @@ export function SiteHeader() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-navy-800 bg-ink/95 backdrop-blur-md lg:hidden"
+            className="overflow-hidden border-t border-navy-100 bg-white lg:hidden"
             aria-label="Navigation mobile"
           >
             <Container className="flex flex-col gap-1 py-4">
@@ -96,7 +96,7 @@ export function SiteHeader() {
                   href={link.href}
                   className={cn(
                     'rounded-lg px-3 py-3 text-sm font-medium transition-colors',
-                    pathname === link.href ? 'bg-navy-800 text-mint-300' : 'text-cream/85 hover:bg-navy-800/60'
+                    pathname === link.href ? 'bg-navy-50 text-navy-700' : 'text-navy-500 hover:bg-navy-50'
                   )}
                 >
                   {link.label}

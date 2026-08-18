@@ -24,7 +24,7 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* HERO */}
+      {/* HERO — bleu marine, mirroring le panneau de la présentation institutionnelle */}
       <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-ink">
         <div className="absolute inset-0">
           <Hero3D className="h-full w-full" />
@@ -34,17 +34,17 @@ export default async function HomePage() {
         <Container className="relative">
           <div className="max-w-3xl">
             <Reveal>
-              <p className="font-sans text-sm font-semibold uppercase tracking-[0.3em] text-mint-400">
+              <p className="font-sans text-sm font-semibold uppercase tracking-[0.3em] text-mint-300">
                 {COMPANY.tagline} · {COMPANY.city}, {COMPANY.country}
               </p>
             </Reveal>
             <Reveal delay={0.1}>
-              <h1 className="mt-5 font-display text-display-xl text-cream text-balance">
+              <h1 className="mt-5 font-display text-display-xl text-white text-balance">
                 L&apos;expertise RH au service des organisations qui construisent le Tchad de demain.
               </h1>
             </Reveal>
             <Reveal delay={0.22}>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-navy-200">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
                 ERIMAS accompagne les organisations publiques, parapubliques, privées et internationales sur
                 l&apos;ensemble du cycle de gestion des ressources humaines — du conseil stratégique à
                 l&apos;externalisation de personnel.
@@ -65,15 +65,15 @@ export default async function HomePage() {
         </Container>
       </section>
 
-      {/* CHIFFRES CLÉS */}
-      <section className="border-y border-navy-800 bg-navy-950 py-16">
+      {/* CHIFFRES CLÉS — blanc */}
+      <section className="border-b border-navy-100 bg-white py-16">
         <Container>
           <StatsCounters />
         </Container>
       </section>
 
-      {/* DOMAINES D'EXPERTISE */}
-      <section className="relative bg-ink py-24 sm:py-32">
+      {/* DOMAINES D'EXPERTISE — blanc */}
+      <section className="relative bg-white py-24 sm:py-32">
         <Container>
           <SectionHeading
             eyebrow="Nos domaines d'expertise"
@@ -88,8 +88,8 @@ export default async function HomePage() {
         </Container>
       </section>
 
-      {/* MÉTHODOLOGIE */}
-      <section className="relative overflow-hidden bg-navy-950 py-24 sm:py-32">
+      {/* MÉTHODOLOGIE — bleu marine, rupture de rythme */}
+      <section className="relative overflow-hidden bg-ink py-24 sm:py-32">
         <AmbientOrbs />
         <Container className="relative">
           <div className="grid gap-16 lg:grid-cols-[0.85fr_1fr]">
@@ -98,11 +98,12 @@ export default async function HomePage() {
                 eyebrow="Notre approche"
                 title="Une méthodologie d'intervention rigoureuse, en six étapes"
                 description="Chaque mission ERIMAS suit un parcours structuré, du cadrage initial au transfert de compétences."
+                tone="dark"
               />
               <Reveal delay={0.2}>
                 <Link
                   href="/notre-approche"
-                  className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-mint-400 hover:text-mint-300"
+                  className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-mint-300 hover:text-mint-200"
                 >
                   Voir le détail de notre approche
                   <ArrowUpRight size={15} />
@@ -114,22 +115,22 @@ export default async function HomePage() {
         </Container>
       </section>
 
-      {/* SÉCURITÉ JURIDIQUE — bandeau court */}
-      <section className="bg-ink py-16">
+      {/* SÉCURITÉ JURIDIQUE — bandeau court, blanc */}
+      <section className="bg-white py-16">
         <Container>
           <Reveal>
-            <div className="flex flex-col items-start gap-6 rounded-2xl border border-navy-700/60 bg-navy-900/40 p-8 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col items-start gap-6 rounded-2xl border border-navy-100 bg-navy-50/60 p-8 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-start gap-4">
-                <ShieldCheck className="mt-1 h-9 w-9 shrink-0 text-mint-400" />
+                <ShieldCheck className="mt-1 h-9 w-9 shrink-0 text-mint-600" />
                 <div>
-                  <h3 className="font-display text-lg font-semibold text-cream">Une sécurité juridique à chaque mission</h3>
-                  <p className="mt-1.5 max-w-xl text-sm text-navy-300">
+                  <h3 className="font-display text-lg font-semibold text-navy-900">Une sécurité juridique à chaque mission</h3>
+                  <p className="mt-1.5 max-w-xl text-sm text-navy-600">
                     Code du travail tchadien, conventions collectives, obligations CNPS et droit OHADA : chaque
                     recommandation ERIMAS s&apos;inscrit dans un cadre légal maîtrisé.
                   </p>
                 </div>
               </div>
-              <Button href="/securite-juridique" variant="secondary">
+              <Button href="/securite-juridique" variant="primary">
                 En savoir plus
               </Button>
             </div>
@@ -137,8 +138,8 @@ export default async function HomePage() {
         </Container>
       </section>
 
-      {/* RÉFÉRENCES / CLIENTS */}
-      <section className="bg-navy-950 py-20">
+      {/* RÉFÉRENCES / CLIENTS — blanc */}
+      <section className="border-t border-navy-100 bg-white py-20">
         <div className="mb-10">
           <Container>
             <SectionHeading eyebrow="Ils nous font confiance" title="Nos références" align="center" />
@@ -147,7 +148,7 @@ export default async function HomePage() {
         <ClientsMarquee />
       </section>
 
-      {/* TÉMOIGNAGES */}
+      {/* TÉMOIGNAGES — bleu marine */}
       {testimonials.length > 0 && (
         <section className="bg-ink py-24 sm:py-32">
           <Container>

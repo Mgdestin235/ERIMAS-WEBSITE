@@ -20,6 +20,7 @@ export default function ApproachPage() {
             eyebrow="Notre approche"
             title="Une méthodologie d'intervention en six étapes"
             description="Chaque mission ERIMAS suit un parcours structuré et transparent, du premier échange au transfert de compétences vers les équipes du client."
+            tone="dark"
           />
           <div className="mt-16 max-w-3xl">
             <MethodologyTimeline />

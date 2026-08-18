@@ -23,9 +23,9 @@ function FloatingShape({ scrollRef }: { scrollRef: React.MutableRefObject<number
       <mesh ref={meshRef} scale={1.7}>
         <icosahedronGeometry args={[1, 6]} />
         <MeshDistortMaterial
-          color="#2b5ea3"
-          emissive="#37c096"
-          emissiveIntensity={0.2}
+          color="#7099c2"
+          emissive="#5b9aa0"
+          emissiveIntensity={0.25}
           roughness={0.15}
           metalness={0.6}
           distort={0.3}
@@ -60,7 +60,7 @@ export default function Hero3DCanvas() {
     >
       <ambientLight intensity={0.65} />
       <directionalLight position={[3, 4, 2]} intensity={1.1} color="#ffffff" />
-      <pointLight position={[-3, -2, -2]} intensity={0.9} color="#37c096" />
+      <pointLight position={[-3, -2, -2]} intensity={0.9} color="#5b9aa0" />
       <FloatingShape scrollRef={scrollRef} />
     </Canvas>
   )

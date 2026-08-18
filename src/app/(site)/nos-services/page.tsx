@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-ink py-24 sm:py-32">
+      <section className="bg-white py-24 sm:py-32">
         <Container>
           <SectionHeading
             eyebrow="Nos services"

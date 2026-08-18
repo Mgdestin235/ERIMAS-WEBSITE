@@ -26,10 +26,10 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
 
   return (
     <>
-      <article className="bg-ink py-20 sm:py-28">
+      <article className="bg-white py-20 sm:py-28">
         <Container className="max-w-3xl">
           <Reveal>
-            <Link href="/blog" className="inline-flex items-center gap-1.5 text-sm font-medium text-navy-300 hover:text-mint-300">
+            <Link href="/blog" className="inline-flex items-center gap-1.5 text-sm font-medium text-navy-500 hover:text-mint-600">
               <ArrowLeft size={15} />
               Retour aux actualités
             </Link>
@@ -49,12 +49,12 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
           </Reveal>
 
           <Reveal delay={0.14}>
-            <h1 className="mt-4 font-display text-display-md text-cream text-balance">{article.title}</h1>
+            <h1 className="mt-4 font-display text-display-md text-navy-900 text-balance">{article.title}</h1>
           </Reveal>
 
           <Reveal delay={0.22}>
             <div
-              className="prose prose-invert mt-10 max-w-none prose-headings:font-display prose-a:text-mint-400"
+              className="prose mt-10 max-w-none prose-headings:font-display prose-headings:text-navy-900 prose-a:text-mint-600"
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{ __html: article.content }}
             />

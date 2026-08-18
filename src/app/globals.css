@@ -5,7 +5,7 @@
 :root {
   --font-display: 'Fraunces', ui-serif, Georgia, serif;
   --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
@@ -27,12 +27,12 @@ html {
 }
 
 body {
-  @apply bg-ink text-cream antialiased;
+  @apply bg-white text-navy-950 antialiased;
   font-family: var(--font-sans);
 }
 
 ::selection {
-  @apply bg-mint-500/30 text-cream;
+  @apply bg-navy-700 text-cream;
 }
 
 /* Focus clavier visible partout — WCAG AA */

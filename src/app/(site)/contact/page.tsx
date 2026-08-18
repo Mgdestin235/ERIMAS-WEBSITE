@@ -15,7 +15,7 @@ export default function ContactPage() {
   const mapQuery = encodeURIComponent(`${COMPANY.address}, ${COMPANY.addressCity}, ${COMPANY.country}`)
 
   return (
-    <section className="bg-ink py-24 sm:py-32">
+    <section className="bg-white py-24 sm:py-32">
       <Container>
         <SectionHeading
           eyebrow="Contact"
@@ -26,44 +26,44 @@ export default function ContactPage() {
         <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_1.1fr]">
           <Reveal delay={0.1}>
             <div className="space-y-8">
-              <div className="rounded-2xl border border-navy-800 bg-navy-900/40 p-7">
+              <div className="rounded-2xl border border-navy-100 bg-navy-50/60 p-7">
                 <ul className="space-y-5 text-sm">
                   <li className="flex gap-3">
-                    <MapPin size={20} className="mt-0.5 shrink-0 text-mint-400" />
-                    <span className="text-navy-200">
+                    <MapPin size={20} className="mt-0.5 shrink-0 text-mint-600" />
+                    <span className="text-navy-700">
                       {COMPANY.address}
                       <br />
                       {COMPANY.addressCity}, {COMPANY.country} — {COMPANY.poBox}
                     </span>
                   </li>
                   <li className="flex gap-3">
-                    <Phone size={20} className="mt-0.5 shrink-0 text-mint-400" />
-                    <span className="flex flex-col gap-1 text-navy-200">
+                    <Phone size={20} className="mt-0.5 shrink-0 text-mint-600" />
+                    <span className="flex flex-col gap-1 text-navy-700">
                       {COMPANY.phones.map((phone) => (
-                        <a key={phone} href={`tel:${phone.replace(/\s+/g, '')}`} className="hover:text-mint-300">
+                        <a key={phone} href={`tel:${phone.replace(/\s+/g, '')}`} className="hover:text-mint-600">
                           {phone}
                         </a>
                       ))}
                     </span>
                   </li>
                   <li className="flex gap-3">
-                    <Mail size={20} className="mt-0.5 shrink-0 text-mint-400" />
-                    <a href={`mailto:${COMPANY.email}`} className="text-navy-200 hover:text-mint-300">
+                    <Mail size={20} className="mt-0.5 shrink-0 text-mint-600" />
+                    <a href={`mailto:${COMPANY.email}`} className="text-navy-700 hover:text-mint-600">
                       {COMPANY.email}
                     </a>
                   </li>
                   <li className="flex gap-3">
-                    <Clock size={20} className="mt-0.5 shrink-0 text-mint-400" />
-                    <span className="text-navy-200">[À COMPLÉTER — horaires d&apos;ouverture du cabinet]</span>
+                    <Clock size={20} className="mt-0.5 shrink-0 text-mint-600" />
+                    <span className="text-navy-700">[À COMPLÉTER — horaires d&apos;ouverture du cabinet]</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="overflow-hidden rounded-2xl border border-navy-800">
+              <div className="overflow-hidden rounded-2xl border border-navy-100">
                 <iframe
                   title="Localisation ERIMAS SARL"
                   src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
-                  className="h-64 w-full grayscale invert-[0.92] contrast-[1.1] sm:h-80"
+                  className="h-64 w-full grayscale sm:h-80"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
@@ -72,7 +72,7 @@ export default function ContactPage() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <div className="rounded-2xl border border-navy-800 bg-navy-900/40 p-8">
+            <div className="rounded-2xl border border-navy-100 bg-white p-8 shadow-card">
               <ContactForm />
             </div>
           </Reveal>

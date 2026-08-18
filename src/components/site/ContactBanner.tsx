@@ -7,7 +7,7 @@ import { COMPANY } from '@/lib/constants'
 
 export function ContactBanner() {
   return (
-    <section className="relative overflow-hidden bg-navy-900">
+    <section className="relative overflow-hidden bg-ink">
       <AmbientOrbs />
       <Container className="relative py-20 sm:py-28">
         <Reveal>

@@ -9,7 +9,7 @@ export function SiteFooter() {
     <footer className="relative border-t border-navy-800 bg-navy-950">
       <Container className="grid gap-12 py-16 lg:grid-cols-[1.2fr_1fr_1fr]">
         <div>
-          <Logo />
+          <Logo tone="white" />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-navy-300">
             {COMPANY.tagline}, basé à {COMPANY.city}. ERIMAS accompagne les organisations publiques,
             parapubliques, privées et internationales sur l&apos;ensemble du cycle de gestion des ressources

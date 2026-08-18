@@ -19,7 +19,7 @@ export default async function ProjectsPage() {
 
   return (
     <>
-      <section className="bg-ink py-24 sm:py-32">
+      <section className="bg-white py-24 sm:py-32">
         <Container>
           <SectionHeading
             eyebrow="Projets"
@@ -34,8 +34,8 @@ export default async function ProjectsPage() {
                 ))}
               </div>
             ) : (
-              <div className="rounded-2xl border border-navy-800 bg-navy-900/40 p-12 text-center">
-                <p className="text-navy-300">
+              <div className="rounded-2xl border border-navy-100 bg-navy-50/60 p-12 text-center">
+                <p className="text-navy-600">
                   Aucune étude de cas publiée pour le moment. Les projets apparaîtront ici dès leur publication
                   depuis le portail admin.
                 </p>

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function LegalSecurityPage() {
   return (
     <>
-      <section className="bg-ink py-24 sm:py-32">
+      <section className="bg-white py-24 sm:py-32">
         <Container>
           <SectionHeading
             eyebrow="Sécurité juridique"
@@ -28,13 +28,13 @@ export default function LegalSecurityPage() {
           <div className="mt-16 space-y-6">
             {LEGAL_FRAMEWORK.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.08}>
-                <div className="flex flex-col gap-5 rounded-2xl border border-navy-800 bg-navy-900/40 p-7 sm:flex-row sm:items-start">
+                <div className="flex flex-col gap-5 rounded-2xl border border-navy-100 bg-white p-7 shadow-card sm:flex-row sm:items-start">
                   <IconTile>
-                    <Scale size={ICON_TILE_PX.md} className="text-mint-300 drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]" strokeWidth={1.75} />
+                    <Scale size={ICON_TILE_PX.md} className="text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]" strokeWidth={1.75} />
                   </IconTile>
                   <div>
-                    <h3 className="font-display text-lg font-semibold text-cream">{item.title}</h3>
-                    <p className="mt-2 text-navy-300">{item.description}</p>
+                    <h3 className="font-display text-lg font-semibold text-navy-900">{item.title}</h3>
+                    <p className="mt-2 text-navy-600">{item.description}</p>
                   </div>
                 </div>
               </Reveal>
@@ -42,7 +42,7 @@ export default function LegalSecurityPage() {
           </div>
 
           <Reveal delay={0.1}>
-            <p className="mt-12 max-w-2xl text-sm text-navy-400">
+            <p className="mt-12 max-w-2xl text-sm text-navy-500">
               Les informations ci-dessus présentent le cadre général de référence. Pour toute analyse juridique
               précise applicable à votre situation, contactez le cabinet : chaque dossier fait l&apos;objet d&apos;une
               étude spécifique. [À COMPLÉTER — mentions juridiques détaillées supplémentaires à intégrer par ERIMAS

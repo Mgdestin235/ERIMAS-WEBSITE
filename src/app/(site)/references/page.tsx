@@ -20,7 +20,7 @@ export default async function ReferencesPage() {
 
   return (
     <>
-      <section className="bg-ink py-24 sm:py-20">
+      <section className="bg-white py-24 sm:py-20">
         <Container>
           <SectionHeading
             eyebrow="Ils nous font confiance"
@@ -33,7 +33,7 @@ export default async function ReferencesPage() {
         </div>
       </section>
 
-      <section className="bg-navy-950 py-24 sm:py-28">
+      <section className="border-t border-navy-100 bg-white py-24 sm:py-28">
         <Container>
           {projects.length > 0 ? (
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -42,8 +42,8 @@ export default async function ReferencesPage() {
               ))}
             </div>
           ) : (
-            <div className="rounded-2xl border border-navy-800 bg-navy-900/40 p-12 text-center">
-              <p className="text-navy-300">
+            <div className="rounded-2xl border border-navy-100 bg-navy-50/60 p-12 text-center">
+              <p className="text-navy-600">
                 Les fiches de référence détaillées sont en cours de publication depuis le portail admin.
                 N&apos;hésitez pas à nous contacter directement pour échanger sur nos missions réalisées.
               </p>
